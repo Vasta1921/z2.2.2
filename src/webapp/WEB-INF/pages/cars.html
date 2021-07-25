@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+  <div class="row align-items-center">
+    <div th:each="cars : ${cars}" class="card mb-2 mr-2">
+      <div class="card-header" th:text="${cars.getModel()}"/>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" th:text="|year born: ${cars.getYear()}|"/>
+        <li class="list-group-item" th:text="|price: ${#numbers.formatDecimal(cars.getPrice(), 0, 'COMMA', 2, 'POINT')} rub.|"/>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
